@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation
 
+  has_many :urls
+
   validates :email, uniqueness: true
 end

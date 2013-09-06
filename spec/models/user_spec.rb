@@ -28,4 +28,8 @@ describe User do
       end
     end
   end
+
+  describe "associations" do
+    it { should have_many(:urls) }
+  end
 end
