@@ -16,5 +16,13 @@ describe SessionsController do
     it "new_session_path" do
       expect(new_session_path).to eq("/sessions/new")
     end
+
+    it "logout_path" do
+      expect(logout_path).to eq("/logout")
+    end
+
+    it "login_path" do
+      expect(login_path).to eq("/login")
+    end
   end
 end
