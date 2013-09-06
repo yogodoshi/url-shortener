@@ -4,10 +4,13 @@
 #user-new
   %h1 Suas URLs encurtadas
 
-  %ul
-    - @urls.each do |url|
-      - full_shortened_url = request.base_url + "/" + url.shortened # would turn into a helper if it was being used on another view
-      %li
-        = link_to url.original, url.original, target: "_blank"
-        = " -> "
-        = link_to full_shortened_url, full_shortened_url, target: "_blank"
+  - if @urls.present?
+    %ul
+      - @urls.each do |url|
+        - full_shortened_url = request.base_url + "/" + url.shortened # would turn into a helper if it was being used on another view
+        %li
+          = link_to url.original, url.original, target: "_blank"
+          = " -> "
+          = link_to full_shortened_url, full_shortened_url, target: "_blank"
+  - else
+    %p Nenhuma URL encurtada ainda.
