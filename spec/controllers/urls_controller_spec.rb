@@ -36,9 +36,9 @@ describe UrlsController do
         should redirect_to(root_path)
       end
 
-      xit "should set the flash correctly" do
+      it "should set the flash correctly" do
         post :create, params
-        should set_the_flash[:notice].to(/url_encurtada/)
+        should set_the_flash[:success].to(/URL encurtada com sucesso, olha só: http:\/\/test\.host\/#{assigns(:url).shortened}/)
       end
     end
 
