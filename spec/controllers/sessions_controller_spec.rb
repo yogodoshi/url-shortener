@@ -57,4 +57,28 @@ describe SessionsController do
       end
     end
   end
+
+
+  describe "DELETE 'destroy'" do
+    context "user was logged in" do
+      before do
+        session[:user_id] = "1234"
+      end
+
+      it "should unset the session" do
+        expect do
+          delete :destroy
+        end.to change{ session[:user_id] }.from("1234").to(nil)
+      end
+
+      it "should redirect to root_path" do
+        delete :destroy
+        should redirect_to(root_path)
+      end
+    end
+
+    context "user wasnt logged in" do
+
+    end
+  end
 end
