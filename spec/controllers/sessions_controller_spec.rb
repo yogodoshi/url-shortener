@@ -75,10 +75,11 @@ describe SessionsController do
         delete :destroy
         should redirect_to(root_path)
       end
-    end
 
-    context "user wasnt logged in" do
-
+      it "should set the flash correctly" do
+        delete :destroy
+        should set_the_flash[:success].to("Deslogado com sucesso!")
+      end
     end
   end
 end
