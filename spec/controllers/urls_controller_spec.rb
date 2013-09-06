@@ -39,6 +39,24 @@ describe UrlsController do
         post :create, params
         should set_the_flash[:success].to(/URL encurtada com sucesso, olha só: http:\/\/test\.host\/#{assigns(:url).shortened}/)
       end
+
+      it "should assign @url to no user" do
+        post :create, params
+        expect(assigns(:url).reload.user_id).to eq(nil)
+      end
+
+      context "logged in" do
+        let!(:user){ create(:user) }
+
+        before do
+          session[:user_id] = user.id
+        end
+
+        it "should assign @url with a the logged in user" do
+          post :create, params
+          expect(assigns(:url).reload.user_id).to eq(user.id)
+        end
+      end
     end
 
     context "with invalid params" do
