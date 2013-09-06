@@ -17,17 +17,17 @@
   %body
     .container
       %header#header
-        #login-nav
-          /- if current_user
-          /  %p
-          /    = "Bem-vindo <strong>#{current_user.name}</strong> &bull; ".html_safe
-          /    = link_to "Sair", logout_path
-          /- else
-          /  %p
-          /    = link_to "Acesse com Facebook", "/auth/facebook", :id => "facebook-connect"
-
         %h1#logo<
           = link_to "Encurtador bolado de URL", root_url, title: "Voltar para home"
+
+        #login-nav
+          - if current_user
+            = "Logado como #{current_user.email}"
+            = link_to "Sair", logout_path, title: "Fazer logout desta conta"
+          - else
+            = link_to "Cadastrar", new_user_path, title: "Criar cadastro no site"
+            ou
+            = link_to "Logar", login_path, title: "Fazer login no site"
 
       %hr
 

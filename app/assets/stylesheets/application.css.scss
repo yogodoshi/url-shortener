@@ -6,10 +6,13 @@ html{
   font-size: 10px;
   line-height: 1.5;
 }
+
 body { color: #333; font-size: 14px; font-size: 1.4rem; }
 
-
 .container { margin: 0 auto; width: 960px; }
+
+
+// HEADER
 
 #header {
   height: 50px;
@@ -18,6 +21,11 @@ body { color: #333; font-size: 14px; font-size: 1.4rem; }
   margin-bottom: 50px;
   border-bottom: 1px solid grey;
 }
+
+#login-nav { float: right; }
+
+
+// MAIN
 
 #shortener-form {
   text-align: center;
