@@ -13,4 +13,13 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def urls
+    if current_user.present?
+      @urls = current_user.urls
+    else
+      flash[:error] = "Você precisa estar logado para acessar esta página!"
+      redirect_to login_path
+    end
+  end
 end
