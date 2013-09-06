@@ -1,3 +1,5 @@
 UrlShortener::Application.routes.draw do
-  root :to => "url_shortener#new"
+  root :to => "urls#new"
+
+  resources :urls, only: [:create, :new]
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UrlShortenerController do
+describe UrlsController do
 
   describe "GET 'new'" do
 
