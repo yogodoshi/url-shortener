@@ -1,6 +1,24 @@
-@import "bourbon";
 @import "reset";
 
-body {
-  font-family: $helvetica;
+html{
+  overflow-y: scroll;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif -t;
+  font-size: 10px;
+  line-height: 1.5;
+}
+body { color: #333; font-size: 14px; font-size: 1.4rem; }
+
+
+.container { margin: 0 auto; width: 960px; }
+
+#header {
+  height: 50px;
+  line-height: 50px;
+  line-height: 5rem;
+  margin-bottom: 50px;
+  border-bottom: 1px solid grey;
+}
+
+#shortener-form {
+  text-align: center;
 }

@@ -1,0 +1,11 @@
+- content_for :title do
+  Fácil, fácil!
+
+#shortener-form
+  = form_for @url do |f|
+    = render "error_messages", object: @url
+    %p
+      = f.label :original, "URL a ser encurtada"
+      = f.text_field :original, required: true
+
+      = f.submit "Encurtar!"
