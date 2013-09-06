@@ -3,6 +3,7 @@ class Url < ActiveRecord::Base
 
   validates :original, :shortened, presence: true
   validates :shortened, uniqueness: true
+  validates :original, :url => true
 
   before_validation :shorten_url
 

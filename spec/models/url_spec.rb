@@ -17,6 +17,32 @@ describe Url do
     describe "required" do
       it { should validate_presence_of(:original) }
     end
+
+    describe "original should be a valid url" do
+      context "invalid urls" do
+        ["", "aaa", nil, "htp://www.aaa.com", "ww.aaa.com"].each do |broken_url|
+          let(:url){ build(:url, original: broken_url) }
+
+          it "should raise a validation error" do
+            expect do
+              url.save
+            end.to change{ url.errors.first }.from(nil).to([:original, "is not a valid URL"])
+          end
+        end
+      end
+
+      context "valid urls" do
+        ["www.google.com", "http://estoujogando.com.br"].each do |correct_url|
+          let(:url){ build(:url, original: correct_url) }
+
+          it "should not raise a validation error" do
+            expect do
+              url.save
+            end.to change{ url.persisted? }.from(false).to(true)
+          end
+        end
+      end
+    end
   end
 
   describe "callbacks" do

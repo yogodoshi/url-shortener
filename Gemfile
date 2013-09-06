@@ -13,6 +13,7 @@ gem 'uglifier',           '>= 1.3.0'
 gem 'rack-canonical-host',  '0.0.8'
 gem "rails_12factor",       "0.0.2", group: :production
 gem 'protected_attributes', "1.0.3"
+gem "validate_url",         "0.2.0"
 
 
 group :development do
