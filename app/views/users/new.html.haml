@@ -1,0 +1,22 @@
+- content_for :title do
+  Crie seu usuário
+
+#user-new
+  %h1 Criar conta
+
+  = form_for @user do |f|
+    = render "error_messages", object: @user
+    %p
+      = f.label :email
+      = f.text_field :email, required: true
+
+    %p
+      = f.label :password
+      = f.password_field :password, required: true
+
+    %p
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, required: true
+
+    %p
+      = f.submit "Criar usuário!"
