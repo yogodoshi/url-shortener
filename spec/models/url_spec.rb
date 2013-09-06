@@ -45,6 +45,12 @@ describe Url do
     end
   end
 
+
+  describe "associations" do
+    it { should belong_to(:user) }
+  end
+
+
   describe "callbacks" do
     describe "before_validation"do
       describe "#shorten_url" do

@@ -5,6 +5,8 @@ class Url < ActiveRecord::Base
   validates :shortened, uniqueness: true
   validates :original, :url => true
 
+  belongs_to :user
+
   before_validation :shorten_url
 
   private
