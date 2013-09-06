@@ -6,7 +6,8 @@
 
   %ul
     - @urls.each do |url|
+      - full_shortened_url = request.base_url + "/" + url.shortened # would turn into a helper if it was being used on another view
       %li
-        = url.original
+        = link_to url.original, url.original, target: "_blank"
         = " -> "
-        = request.base_url + "/" + url.shortened
+        = link_to full_shortened_url, full_shortened_url, target: "_blank"

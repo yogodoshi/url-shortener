@@ -1,4 +1,4 @@
 #flash-messages
   - flash.each do |key, value|
-    %div{ :id => "flash_#{key}" }
+    .alert{ class: "alert-#{key}" }
       = value

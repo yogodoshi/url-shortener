@@ -2,10 +2,9 @@
   Fácil, fácil!
 
 #shortener-form
-  = form_for @url do |f|
+  = form_for @url, html: { class: "form-inline" } do |f|
     = render "error_messages", object: @url
     %p
-      = f.label :original, "URL a ser encurtada"
-      = f.text_field :original, required: true
+      = f.text_field :original, placeholder: "URL a ser encurtada", required: true
 
-      = f.submit "Encurtar!"
+      = f.submit "Encurtar!", class: "btn"

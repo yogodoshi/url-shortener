@@ -17,19 +17,20 @@
   %body
     .container
       %header#header
-        %h1#logo<
-          = link_to "Encurtador bolado de URL", root_url, title: "Voltar para home"
+        %h1#logo
+          = link_to "Encurtador de URL", root_url, title: "Voltar para home"
 
         #login-nav
           - if current_user
             = "Logado como #{current_user.email}"
+            = " - "
+            = link_to "Lista de URLs encurtadas", user_urls_path, title: "Ver a lista de todas as URLs encurtadas"
+            = " - "
             = link_to "Sair", logout_path, title: "Fazer logout desta conta"
           - else
             = link_to "Cadastrar", new_user_path, title: "Criar cadastro no site"
             ou
             = link_to "Logar", login_path, title: "Fazer login no site"
-
-      %hr
 
       = render 'flash_messages'
 
