@@ -5,6 +5,13 @@ class UrlsController < ApplicationController
   end
 
   def create
+    @url = Url.new(params[:url])
 
+    if @url.save
+      flash[:success] = "URL encurtada com sucesso, olha só: #{@url.shortened}"
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 end
