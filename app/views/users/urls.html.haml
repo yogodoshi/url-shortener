@@ -1,0 +1,12 @@
+- content_for :title do
+  Suas URLs encurtadas
+
+#user-new
+  %h1 Suas URLs encurtadas
+
+  %ul
+    - @urls.each do |url|
+      %li
+        = url.original
+        = " -> "
+        = request.base_url + "/" + url.shortened
