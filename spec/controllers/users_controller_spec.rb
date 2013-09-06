@@ -41,6 +41,12 @@ describe UsersController do
         post :create, params
         should set_the_flash[:success].to("Pronto, agora você está logado!")
       end
+
+      it "should set the session" do
+        expect do
+          post :create, params
+        end.to change{ session[:user_id] }.from(nil)
+      end
     end
 
     context "with invalid params" do
