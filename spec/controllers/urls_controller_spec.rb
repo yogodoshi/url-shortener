@@ -17,7 +17,6 @@ describe UrlsController do
 
   describe "POST 'create'" do
     context "with valid params" do
-
       let(:params) do
         {
           url: {
@@ -43,7 +42,6 @@ describe UrlsController do
     end
 
     context "with invalid params" do
-
       let(:params) do
         {
           url: {
@@ -60,6 +58,36 @@ describe UrlsController do
       it "should re-render the 'new' template" do
         post :create, params
         should render_template("new")
+      end
+    end
+  end
+
+  describe "GET 'unshorten'" do
+
+    context "with a valid param" do
+
+      let!(:url) do
+        create(:url, original: "http://estoujogando.com.br/atividades")
+      end
+
+      before do
+        get :unshorten, id: url.shortened
+      end
+
+      it { should respond_with(301) }
+      it { should_not render_template(:unshorten) }
+      it { should_not render_with_layout(:application) }
+
+      it "should redirect to the original url" do
+        should redirect_to("http://estoujogando.com.br/atividades")
+      end
+    end
+
+    context "with an invalid param" do
+      it "should raise error" do
+        expect do
+          get :unshorten, id: "aa"
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

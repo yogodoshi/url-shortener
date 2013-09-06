@@ -14,4 +14,9 @@ class UrlsController < ApplicationController
       render 'new'
     end
   end
+
+  def unshorten
+    @url = Url.find_by!(shortened: params[:id])
+    head :moved_permanently, :location => @url.original
+  end
 end
