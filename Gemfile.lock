@@ -1,9 +1,8 @@
 GIT
   remote: git://github.com/thoughtbot/shoulda-matchers.git
-  revision: da22d329067416ff851744a315197c6a44595dc2
-  branch: dp-rails-four
+  revision: 5815d38fa0d4b0fd989a0f89e4752df935f2c6c9
   specs:
-    shoulda-matchers (2.2.0)
+    shoulda-matchers (2.4.0.rc1)
       activesupport (>= 3.0.0)
 
 GEM
@@ -37,6 +36,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     awesome_print (1.1.0)
+    bcrypt-ruby (3.0.0)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -182,6 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print (= 1.1.0)
+  bcrypt-ruby (~> 3.0.0)
   better_errors (= 0.9.0)
   binding_of_caller (= 0.7.2)
   dotenv-rails (= 0.8.0)

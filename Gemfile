@@ -14,6 +14,7 @@ gem 'rack-canonical-host',  '0.0.8'
 gem "rails_12factor",       "0.0.2", group: :production
 gem 'protected_attributes', "1.0.3"
 gem "validate_url",         "0.2.0"
+gem "bcrypt-ruby",          "~> 3.0.0" # to use has_secure_password on User
 
 
 group :development do
@@ -25,7 +26,7 @@ end
 
 group :test do
   # See https://github.com/thoughtbot/shoulda-matchers/issues/270
-  gem "shoulda-matchers",   github: "thoughtbot/shoulda-matchers" , branch: 'dp-rails-four'
+  gem "shoulda-matchers",   github: "thoughtbot/shoulda-matchers"
   gem 'simplecov',          '0.7.1', require: false
   # gem 'webmock',            '1.11.0'
   # gem 'timecop',            '0.6.1'
